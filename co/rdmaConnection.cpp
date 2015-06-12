@@ -1382,8 +1382,8 @@ bool RDMAConnection::_connect( )
     conn_param.initiator_depth = RDMA_MAX_INIT_DEPTH;
     conn_param.responder_resources = RDMA_MAX_RESP_RES;
     // Magic 3-bit values.
-    //conn_param.retry_count = 5;
-    //conn_param.rnr_retry_count = 7;
+    conn_param.retry_count = 5;
+    conn_param.rnr_retry_count = 7;
 
     LBINFO << "Connect on source lid : " << std::showbase
         << std::hex << ntohs( _cm_id->route.path_rec->slid ) << " ("
@@ -1487,7 +1487,7 @@ bool RDMAConnection::_accept( )
     accept_param.initiator_depth = RDMA_MAX_INIT_DEPTH;
     accept_param.responder_resources = RDMA_MAX_RESP_RES;
     // Magic 3-bit value.
-    //accept_param.rnr_retry_count = 7;
+    accept_param.rnr_retry_count = 7;
 
     LBINFO << "Accept on source lid : "<< std::showbase
            << std::hex << ntohs( _cm_id->route.path_rec->slid ) << " ("
