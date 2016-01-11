@@ -120,7 +120,7 @@ OCommand::~OCommand()
 
 void OCommand::_init( const uint32_t cmd, const uint32_t type )
 {
-#ifndef COLLAGE_BIGENDIAN
+#ifndef COMMON_BIGENDIAN
     // big endian hosts swap handshake commands to little endian...
     LBASSERTINFO( cmd < CMD_NODE_MAXIMUM, std::hex << "0x" << cmd << std::dec );
 #endif
@@ -162,6 +162,7 @@ void OCommand::sendData( const void* buffer LB_UNUSED, const uint64_t size,
     LBASSERT( getBuffer().getMaxSize() >= COMMAND_MINSIZE );
 
     // Update size field
+    // cppcheck-suppress unreadVariable
     uint8_t* bytes = getBuffer().getData();
     reinterpret_cast< uint64_t* >( bytes )[ 0 ] = _impl->size + size;
     const uint64_t sendSize = _impl->isLocked ? size : LB_MAX( size,

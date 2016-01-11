@@ -1,3 +1,4 @@
 # -*- mode: cmake -*-
-git_subproject(Lunchbox https://github.com/Eyescale/Lunchbox.git 52528af)
-git_subproject(Pression https://github.com/Eyescale/Pression.git 5ddcaf3)
+git_subproject(ZeroBuf https://github.com/HBPVIS/ZeroBuf.git d800fb4)
+git_subproject(Lunchbox https://github.com/Eyescale/Lunchbox.git f4e45cf)
+git_subproject(Pression https://github.com/Eyescale/Pression.git dffb04b)

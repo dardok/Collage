@@ -40,7 +40,7 @@ namespace co
     {
     public:
         /** Construct a new instance cache. */
-        CO_API InstanceCache( const uint64_t maxSize = LB_100MB );
+        CO_API explicit InstanceCache( const uint64_t maxSize = LB_100MB );
 
         /** Destruct this instance cache. */
         CO_API ~InstanceCache();
@@ -130,7 +130,7 @@ namespace co
             TimeDeque times;
         };
 
-        typedef stde::hash_map< lunchbox::uint128_t, Item > ItemHash;
+        typedef stde::hash_map< uint128_t, Item > ItemHash;
         typedef ItemHash::iterator ItemHashIter;
         lunchbox::Lockable< ItemHash > _items;
 

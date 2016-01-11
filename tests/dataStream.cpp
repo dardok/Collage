@@ -68,13 +68,13 @@ public:
     }
 
     size_t nRemainingBuffers() const override { return _commands.getSize(); }
-    lunchbox::uint128_t getVersion() const override { return co::VERSION_NONE; }
+    co::uint128_t getVersion() const override { return co::VERSION_NONE; }
     co::NodePtr getRemoteNode() const override { return 0; }
     co::LocalNodePtr getLocalNode() const override { return 0; }
 
 protected:
-    virtual bool getNextBuffer( uint32_t& compressor, uint32_t& nChunks,
-                                const void** chunkData, uint64_t& size )
+    bool getNextBuffer( uint32_t& compressor, uint32_t& nChunks,
+                        const void** chunkData, uint64_t& size ) final
     {
         co::ICommand cmd = _commands.tryPop();
         if( !cmd.isValid( ))
@@ -102,9 +102,9 @@ namespace DataStreamTest
 class Sender : public lunchbox::Thread
 {
 public:
-    Sender( lunchbox::RefPtr< co::Connection > connection )
-            : Thread(),
-              _connection( connection )
+    explicit Sender( lunchbox::RefPtr< co::Connection > connection )
+            : Thread()
+            , _connection( connection )
         {
             TEST( connection );
             TEST( connection->isConnected( ));
@@ -112,7 +112,7 @@ public:
     virtual ~Sender(){}
 
 protected:
-    virtual void run()
+    void run() final
     {
         ::DataOStream stream;
 
