@@ -12,10 +12,10 @@ low-overhead multi-threaded execution which allows applications to easily
 exploit multi-core architectures.
 
 The
-[API documentation](http://eyescale.github.io/Collage-1.3/index.html) can be
+[API documentation](http://eyescale.github.io/Collage-1.4/index.html) can be
 found on [eyescale.github.io](http://eyescale.github.io/). As with any open
 source project, the available source code, in particular the
-[unit tests](https://github.com/Eyescale/Collage/tree/1.3/tests) provide a
+[unit tests](https://github.com/Eyescale/Collage/tree/1.4/tests) provide a
 reference for developing applications.
 
 Technical questions can be posted to the Equalizer
@@ -34,7 +34,7 @@ Collage provides different levels of abstraction to facilitate the
 development distributed applications:
 
 * Network Connections: stream-oriented point-to-point and reliable multicast
-  connections for TCP/IP, SDP, InfiniBand RDMA, UDT, events, named and anonymous
+  connections for TCP/IP, InfiniBand RDMA, UDT, events, named and anonymous
   pipes, memory buffers and reliable multicast over UDP.
 * Peer-to-Peer Messaging: Endian-safe node-to-node message communication with
   thread-aware message dispatch.

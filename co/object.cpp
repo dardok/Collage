@@ -1,6 +1,6 @@
 
-/* Copyright (c) 2005-2014, Stefan Eilemann <eile@equalizergraphics.com>
- *               2011-2012, Daniel Nachbaur <danielnachbaur@gmail.com>
+/* Copyright (c) 2005-2016, Stefan Eilemann <eile@equalizergraphics.com>
+ *                          Daniel Nachbaur <danielnachbaur@gmail.com>
  *
  * This file is part of Collage <https://github.com/Eyescale/Collage>
  *
@@ -120,7 +120,7 @@ uint32_t Object::getInstanceID() const
 
 void Object::attach( const uint128_t& id, const uint32_t instanceID )
 {
-    LBASSERT( !isAttached() );
+    LBASSERTINFO( !isAttached(), *this );
     LBASSERT( impl_->localNode );
     LBASSERT( instanceID <= CO_INSTANCE_MAX );
 
@@ -274,7 +274,7 @@ void Object::applyMapData( const uint128_t& version )
     impl_->cm->applyMapData( version );
 }
 
-void Object::sendInstanceData( Nodes& nodes )
+void Object::sendInstanceData( const Nodes& nodes )
 {
     impl_->cm->sendInstanceData( nodes );
 }

@@ -16,7 +16,7 @@
  */
 
 // Tests basic connection functionality
-#include <test.h>
+#include <lunchbox/test.h>
 #include <co/buffer.h>
 #include <co/connection.h>
 #include <co/connectionDescription.h>
@@ -130,7 +130,11 @@ bool _initialize( co::ConnectionDescriptionPtr desc,
                   co::ConnectionPtr& writer )
 {
     if( desc->type >= co::CONNECTIONTYPE_MULTICAST )
+    {
+        if( getenv( "TRAVIS" ))
+            return false;
         desc->setHostname( "239.255.12.34" );
+    }
     else
         desc->setHostname( "127.0.0.1" );
 

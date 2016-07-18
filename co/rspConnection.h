@@ -131,7 +131,7 @@ private:
 
         void byteswap()
             {
-#ifdef COMMON_BIGENDIAN
+#ifdef COLLAGE_BIGENDIAN
                 lunchbox::byteswap( type );
                 lunchbox::byteswap( protocolVersion );
                 lunchbox::byteswap( connectionID );
@@ -149,7 +149,7 @@ private:
 
         void byteswap()
             {
-#ifdef COMMON_BIGENDIAN
+#ifdef COLLAGE_BIGENDIAN
                 lunchbox::byteswap( type );
                 lunchbox::byteswap( writerID );
                 lunchbox::byteswap( sequence );
@@ -169,12 +169,12 @@ private:
     struct DatagramNack
     {
         void set( uint16_t rID, uint16_t wID, uint16_t n )
-            {
-                type       = NACK;
-                readerID   = rID;
-                writerID   = wID;
-                count      = n;
-            }
+        {
+            type       = NACK;
+            readerID   = rID;
+            writerID   = wID;
+            count      = n;
+        }
 
         uint16_t       type;
         uint16_t       readerID;
@@ -184,7 +184,7 @@ private:
 
         void byteswap()
             {
-#ifdef COMMON_BIGENDIAN
+#ifdef COLLAGE_BIGENDIAN
                 lunchbox::byteswap( type );
                 lunchbox::byteswap( readerID );
                 lunchbox::byteswap( writerID );
@@ -208,7 +208,7 @@ private:
 
         void byteswap()
             {
-#ifdef COMMON_BIGENDIAN
+#ifdef COLLAGE_BIGENDIAN
                 lunchbox::byteswap( type );
                 lunchbox::byteswap( readerID );
                 lunchbox::byteswap( writerID );
@@ -227,7 +227,7 @@ private:
 
         void byteswap()
             {
-#ifdef COMMON_BIGENDIAN
+#ifdef COLLAGE_BIGENDIAN
                 lunchbox::byteswap( type );
                 lunchbox::byteswap( size );
                 lunchbox::byteswap( writerID );
