@@ -15,9 +15,9 @@
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
-template <typename T>
-void DataOStreamArchive::save_array(const boost::serialization::array<T>& a,
-                                    unsigned int)
+template<typename T>
+void DataOStreamArchive::save_array(const boost::serialization::array_wrapper< T >& a,
+                                     unsigned int)
 {
     _stream << Array<const T>(a.address(), a.count());
 }

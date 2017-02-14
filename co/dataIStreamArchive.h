@@ -73,7 +73,7 @@ public:
 
     /** @internal use optimized load for arrays. */
     template <typename T>
-    void load_array(boost::serialization::array<T>& a, unsigned int);
+    void load_array(boost::serialization::array_wrapper<T>& a, unsigned int);
 
     /** @internal enable serialization optimization for arrays. */
     struct use_array_optimization

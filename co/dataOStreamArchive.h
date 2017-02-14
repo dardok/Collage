@@ -66,7 +66,7 @@ public:
 
     /** @internal use optimized save for arrays. */
     template <typename T>
-    void save_array(const boost::serialization::array<T>& a, unsigned int);
+    void save_array(const boost::serialization::array_wrapper<T>& a, unsigned int);
 
     /** @internal enable serialization optimization for arrays. */
     struct use_array_optimization
